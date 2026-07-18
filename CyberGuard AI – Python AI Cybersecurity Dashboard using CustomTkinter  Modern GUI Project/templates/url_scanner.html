@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}CyberGuard AI - URL Threat Scanner{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>URL Threat Scanner</h1>
+    <p>Analyze domain patterns and protocols for phishing flags and security indicators.</p>
+</div>
+
+<div class="scanner-grid">
+    <!-- Scanner Console Input -->
+    <div class="cyber-card">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-terminal" style="color: var(--accent);"></i> Scanner Interface
+        </h2>
+        
+        <form method="POST" action="{{ url_for('url_scanner') }}" class="scan-form">
+            <div class="form-group">
+                <label for="url-input" class="form-label">Enter Target URL to Scan</label>
+                <input 
+                    type="url" 
+                    id="url-input" 
+                    name="url" 
+                    class="input-cyber" 
+                    placeholder="https://example.com/login-portal" 
+                    required
+                    value="{{ result.url if result else '' }}"
+                >
+            </div>
+            <button type="submit" class="btn-cyber" style="width: 100%;">
+                <i class="fas fa-magnifying-glass"></i> Analyze Link Security
+            </button>
+        </form>
+    </div>
+
+    <!-- Scanner Output Console -->
+    <div class="cyber-card results-box" id="results-container">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-chart-simple" style="color: var(--accent);"></i> Analysis Results
+        </h2>
+        
+        {% if result %}
+            <!-- Scan metrics displayed -->
+            <div style="margin-bottom: 1.5rem;">
+                <span style="color: var(--text-muted); font-size: 0.9rem; word-break: break-all; display: block; margin-bottom: 0.5rem;">
+                    <strong>Target:</strong> {{ result.url }}
+                </span>
+                <span class="badge {{ result.status_class }}">{{ result.status }}</span>
+            </div>
+
+            <!-- Risk Progress Meter -->
+            <div class="risk-meter-container">
+                <div class="meter-header">
+                    <span>Threat Risk Level</span>
+                    <span style="color: var(--{% if result.status_class == 'safe' %}safe{% elif result.status_class == 'warning' %}warning{% else %}danger{% endif %});">
+                        {{ result.risk_percent }}%
+                    </span>
+                </div>
+                <div class="meter-bar-bg">
+                    <div class="meter-bar-fill {{ result.status_class }}" style="width: {{ result.risk_percent }}%;"></div>
+                </div>
+            </div>
+
+            <!-- Detailed Indicators -->
+            <div class="indicators-list">
+                <h3>Detected Threat Indicators</h3>
+                
+                {% if result.indicators %}
+                    {% for indicator in result.indicators %}
+                        <div class="indicator-item {{ 'danger-item' if result.risk_percent > 50 else 'warning-item' }}">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <div>
+                                <span style="font-weight: 500; display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">
+                                    Security Flagged
+                                </span>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                    {{ indicator }}
+                                </span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Clear Report -->
+                    <div class="indicator-item safe-item">
+                        <i class="fas fa-circle-check"></i>
+                        <div>
+                            <span style="font-weight: 500; display: block; font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--safe);">
+                                Safe Connection
+                            </span>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                No typical phishing indicators or protocol flags found in this URL pattern.
+                            </span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            
+        {% else %}
+            <!-- Prompt template when scan is pending -->
+            <div style="text-align: center; padding: 2rem 0; color: var(--text-muted);">
+                <i class="fas fa-shield-halved" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                <p>Submit a URL on the left to start heuristic analysis.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

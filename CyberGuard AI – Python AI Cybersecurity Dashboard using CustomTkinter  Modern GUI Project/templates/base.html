@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CyberGuard AI - Smart Threat Detection{% endblock %}</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Central Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Cyber preloader screen -->
+    <div id="page-loader" class="loader-overlay">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">CYBERGUARD AI INITIALIZING...</div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="{{ url_for('index') }}" class="logo">
+                <i class="fas fa-shield-halved logo-icon"></i>
+                <span>CYBERGUARD AI</span>
+            </a>
+            
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="nav-menu">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}" class="nav-link {% if request.path == '/' or request.path == '/home' %}active{% endif %}">
+                            <i class="fas fa-house"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('url_scanner') }}" class="nav-link {% if request.path == '/url_scanner' %}active{% endif %}">
+                            <i class="fas fa-link"></i> URL Scanner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('email_scanner') }}" class="nav-link {% if request.path == '/email_scanner' %}active{% endif %}">
+                            <i class="fas fa-envelope-open-text"></i> Email Scanner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('password_checker') }}" class="nav-link {% if request.path == '/password_checker' %}active{% endif %}">
+                            <i class="fas fa-key"></i> Password Checker
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('privacy_tips') }}" class="nav-link {% if request.path == '/privacy_tips' %}active{% endif %}">
+                            <i class="fas fa-user-shield"></i> Privacy Tips
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('dashboard_view') }}" class="nav-link {% if request.path == '/dashboard' %}active{% endif %}">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Block -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Shared Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="{{ url_for('index') }}" class="footer-logo">
+                <i class="fas fa-shield-halved"></i> CyberGuard AI
+            </a>
+            <div class="footer-copy">
+                &copy; 2026 CyberGuard AI. Developed for Python & Cybersecurity Learners.
+            </div>
+            <div class="footer-links">
+                <a href="{{ url_for('privacy_tips') }}">Privacy Guide</a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">Source Code</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Local Central Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

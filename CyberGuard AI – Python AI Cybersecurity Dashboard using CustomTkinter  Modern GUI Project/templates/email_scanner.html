@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}CyberGuard AI - Phishing Email Scanner{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Phishing Email Scanner</h1>
+    <p>Analyze email content blocks for urgency framing, verification queries, and spam signatures.</p>
+</div>
+
+<div class="scanner-grid">
+    <!-- Scanner Console Input -->
+    <div class="cyber-card">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-keyboard" style="color: var(--accent);"></i> Phishing Input Console
+        </h2>
+        
+        <form method="POST" action="{{ url_for('email_scanner') }}" class="scan-form">
+            <div class="form-group">
+                <label for="email-text-input" class="form-label">Paste Email Message Content</label>
+                <textarea 
+                    id="email-text-input" 
+                    name="email_text" 
+                    class="input-cyber" 
+                    placeholder="Dear Customer, please verify your account password immediately to avoid suspension and win a free gift..." 
+                    required
+                >{% if result and result.text %}{{ result.text }}{% endif %}</textarea>
+            </div>
+            <button type="submit" class="btn-cyber" style="width: 100%;">
+                <i class="fas fa-shield-virus"></i> Analyze Message Text
+            </button>
+        </form>
+    </div>
+
+    <!-- Scanner Output Console -->
+    <div class="cyber-card results-box">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-radar" style="color: var(--accent);"></i> Detection Analysis
+        </h2>
+        
+        {% if result %}
+            <div style="margin-bottom: 1.5rem;">
+                <span style="color: var(--text-muted); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">
+                    <strong>Threat Rating:</strong>
+                </span>
+                <span class="badge {{ result.status_class }}">{{ result.status }}</span>
+            </div>
+
+            <!-- Risk Progress Meter -->
+            <div class="risk-meter-container">
+                <div class="meter-header">
+                    <span>Phishing Indicators Weight</span>
+                    <span style="color: var(--{% if result.status_class == 'safe' %}safe{% elif result.status_class == 'warning' %}warning{% else %}danger{% endif %});">
+                        {{ result.risk_percent }}%
+                    </span>
+                </div>
+                <div class="meter-bar-bg">
+                    <div class="meter-bar-fill {{ result.status_class }}" style="width: {{ result.risk_percent }}%;"></div>
+                </div>
+            </div>
+
+            <!-- Found Phish words highlights -->
+            <div class="indicators-list">
+                <h3>Flagged Vocabulary Keywords</h3>
+                
+                {% if result.found_keywords %}
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        {% for word in result.found_keywords %}
+                            <span class="badge danger" style="padding: 0.25rem 0.6rem; font-size: 0.75rem; text-transform: uppercase;">
+                                <i class="fas fa-keykey fa-triangle-exclamation"></i> {{ word }}
+                            </span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="indicator-item warning-item">
+                        <i class="fas fa-shield-alert fa-circle-exclamation" style="color: var(--warning);"></i>
+                        <div>
+                            <span style="font-weight: 500; display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">
+                                Heuristic Risk Flagged
+                            </span>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                Found {{ result.match_count }} phishing trigger keyword(s) indicating potential social engineering tactics.
+                            </span>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- Clear Report -->
+                    <div class="indicator-item safe-item">
+                        <i class="fas fa-circle-check"></i>
+                        <div>
+                            <span style="font-weight: 500; display: block; font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--safe);">
+                                Text Verified Safe
+                            </span>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                Zero suspicious urgency keywords or lottery bait terms detected in the text body.
+                            </span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            
+        {% else %}
+            <!-- Scan Pending message -->
+            <div style="text-align: center; padding: 2rem 0; color: var(--text-muted);">
+                <i class="fas fa-envelope-open" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                <p>Paste email text on the left to start heuristic content scanning.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

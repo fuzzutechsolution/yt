@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block title %}CyberGuard AI - Privacy Tips{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Privacy Protection Guide</h1>
+    <p>Follow these essential offline checklists to protect your personal information and active nodes.</p>
+</div>
+
+<!-- Grid of Interactive Tip Cards -->
+<div class="grid-3">
+    <!-- Card 1: Enable 2FA -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">01</span>
+            <h2 class="tip-title">Enable 2FA (Two-Factor Authentication)</h2>
+        </div>
+        <p class="tip-desc">
+            Double the protective shield on accounts by requiring a second verification factor alongside the password.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Avoid SMS-based 2FA (susceptible to SIM swap hacks).
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Use authenticator apps like Google Authenticator or Aegis.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Save your emergency backup recovery codes in a physical folder.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Card 2: Use Password Manager -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">02</span>
+            <h2 class="tip-title">Use a Password Manager</h2>
+        </div>
+        <p class="tip-desc">
+            Avoid credentials recycling by keeping unique passwords for every site inside a secure local crypt.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Choose highly rated tools like Bitwarden or KeepassXC.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Create a strong Master Passcode that you do not write online.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Disable standard browser autocompletion tools to prevent leaks.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Card 3: Update Browser & Apps -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">03</span>
+            <h2 class="tip-title">Keep Browser & Software Updated</h2>
+        </div>
+        <p class="tip-desc">
+            Prevent remote attackers from using known software exploits by keeping operating systems patched.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Enable automatic updates inside Chrome, Firefox, or Brave.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Remove inactive browser extensions (lowers vulnerability surfaces).
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Restart your system weekly to apply kernel security modifications.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Card 4: Avoid Public WiFi -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">04</span>
+            <h2 class="tip-title">Avoid Public WiFi Networks</h2>
+        </div>
+        <p class="tip-desc">
+            Public hot-spots are prone to Man-in-the-Middle (MitM) attacks where criminals copy your unencrypted data packets.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Use cellular hot-spots instead of airport/cafe networks.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> If public networks are required, run an encrypted VPN connection.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Turn off auto-connect settings on mobile devices.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Card 5: Backup Critical Data -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">05</span>
+            <h2 class="tip-title">Perform Regular Offline Backups</h2>
+        </div>
+        <p class="tip-desc">
+            Mitigate ransomware threats by copying files to offline external storage disks regularly.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Follow the 3-2-1 rule: 3 backups, 2 media types, 1 offsite.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Use external hard disks that remain unplugged when not in use.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Encrypt backups with open tools like VeraCrypt.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Card 6: Restrict App Permissions -->
+    <div class="cyber-card tip-card">
+        <div class="tip-card-header">
+            <span class="tip-number">06</span>
+            <h2 class="tip-title">Audit Device Permissions</h2>
+        </div>
+        <p class="tip-desc">
+            Reduce silent mobile tracing by pruning applications from accessing location, contacts, and microphone data.
+        </p>
+        <ul class="tip-checklist" style="display: block;">
+            <li>
+                <i class="fas fa-circle-check"></i> Deny apps background tracking permissions.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Revoke microphone access for apps that don't record audio.
+            </li>
+            <li>
+                <i class="fas fa-circle-check"></i> Delete unused profile applications from cellphones.
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

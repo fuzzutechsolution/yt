@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}CyberGuard AI - Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Security Operations Dashboard</h1>
+    <p>Real-time telemetry and analytical overview of local threat indicators processed.</p>
+</div>
+
+<!-- Modern Dashboard Stat Cards -->
+<div class="dashboard-grid">
+    <!-- Card 1: Scans Today -->
+    <div class="cyber-card stat-card">
+        <i class="fas fa-radar stat-icon"></i>
+        <div class="stat-val" id="stat-scans">{{ stats.scans_today }}</div>
+        <div class="stat-label">Scans Today</div>
+    </div>
+
+    <!-- Card 2: Threats Found -->
+    <div class="cyber-card stat-card threats">
+        <i class="fas fa-biohazard stat-icon"></i>
+        <div class="stat-val" id="stat-threats" style="color: var(--danger);">{{ stats.threats_found }}</div>
+        <div class="stat-label">Threats Found</div>
+    </div>
+
+    <!-- Card 3: Safe Reports -->
+    <div class="cyber-card stat-card safe">
+        <i class="fas fa-circle-check stat-icon"></i>
+        <div class="stat-val" id="stat-safe" style="color: var(--safe);">{{ stats.safe_reports }}</div>
+        <div class="stat-label">Safe Reports</div>
+    </div>
+
+    <!-- Card 4: Average Risk -->
+    <div class="cyber-card stat-card risk">
+        <i class="fas fa-triangle-exclamation stat-icon"></i>
+        <div class="stat-val" id="stat-risk" style="color: var(--warning);">{{ avg_risk }}%</div>
+        <div class="stat-label">Average Risk Rating</div>
+    </div>
+</div>
+
+<!-- Detail logs / heuristic weights info -->
+<div class="dashboard-details">
+    <!-- Left panel: Heuristic weights -->
+    <div class="cyber-card">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-sliders" style="color: var(--accent);"></i> Heuristic Scanning Weights
+        </h2>
+        <ul class="threats-breakdown">
+            <li class="threat-row">
+                <span>No HTTPS Protocol</span>
+                <span class="badge danger">+25% Risk</span>
+            </li>
+            <li class="threat-row">
+                <span>Phishing Keywords in URL</span>
+                <span class="badge danger">+25% Risk</span>
+            </li>
+            <li class="threat-row">
+                <span>Raw IP Numerical Domain</span>
+                <span class="badge danger">+25% Risk</span>
+            </li>
+            <li class="threat-row">
+                <span>URL excessive length (&gt;75 chars)</span>
+                <span class="badge danger">+25% Risk</span>
+            </li>
+            <li class="threat-row">
+                <span>Email Urgency Keywords (each)</span>
+                <span class="badge warning">+Variable Threat Level</span>
+            </li>
+            <li class="threat-row">
+                <span>Weak Password Complexity (Entropy &lt; 3)</span>
+                <span class="badge danger">+90% Danger weight</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Right panel: Engine summary info -->
+    <div class="cyber-card">
+        <h2 style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 1.3rem;">
+            <i class="fas fa-microchip" style="color: var(--accent);"></i> Analysis Engine Status
+        </h2>
+        <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+            <p style="margin-bottom: 1rem;">
+                <strong>Threat Detection Strategy:</strong> Rule-based heuristic analysis. Unlike cloud tools that transmit payload logs over public nodes, CyberGuard runs parsing vectors completely on local threads.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                This ensures data processing speed, Zero-API dependencies, and matches the strict security standard of air-gapped systems.
+            </p>
+            <div style="padding: 1rem; background: rgba(0, 240, 255, 0.05); border: 1px solid var(--border-glow); border-radius: 8px; display: flex; align-items: center; gap: 0.75rem;">
+                <i class="fas fa-circle-nodes" style="color: var(--accent); font-size: 1.5rem; filter: drop-shadow(0 0 5px var(--accent));"></i>
+                <span style="color: var(--text-main); font-weight: 500; font-family: var(--font-mono); font-size: 0.85rem;">
+                    ENGINE STATUS: ONLINE & DEPLOYED SECURELY
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

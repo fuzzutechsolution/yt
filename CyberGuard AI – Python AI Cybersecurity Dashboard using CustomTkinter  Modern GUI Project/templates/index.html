@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}CyberGuard AI - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Layout Section -->
+<section class="hero-section">
+    <div class="hero-text">
+        <h1>Smart Privacy & <span>Threat Detection</span></h1>
+        <p>
+            An offline cybersecurity console demonstrating rule-based phishing indicators, credential strength checks, and interactive privacy auditing. Protect your digital footprint instantly.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ url_for('url_scanner') }}" class="btn-cyber">
+                <i class="fas fa-radar"></i> Start Scanning
+            </a>
+            <a href="{{ url_for('privacy_tips') }}" class="btn-cyber btn-secondary">
+                <i class="fas fa-lock"></i> Privacy Tips
+            </a>
+        </div>
+    </div>
+    
+    <div class="hero-graphic">
+        <div class="shield-container">
+            <i class="fas fa-shield-halved shield-icon"></i>
+            <div class="pulse-circle"></div>
+            <div class="pulse-circle-inner"></div>
+        </div>
+    </div>
+</section>
+
+<!-- CyberGuard Main Modules/Features Section -->
+<section class="feature-section">
+    <div class="section-header">
+        <h2>Security Modules</h2>
+        <p>Explore our integrated analysis consoles built to evaluate threats and protect data.</p>
+    </div>
+    
+    <div class="grid-3">
+        <!-- Card 1: URL Scanner -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-link"></i>
+            </div>
+            <h3>URL threat scanner</h3>
+            <p>Scan links for HTTPS status, raw IP routing, phishing keywords, and long obfuscated domains.</p>
+            <a href="{{ url_for('url_scanner') }}" class="feature-link">
+                Launch Scanner <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Card 2: Email Scanner -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3>phishing email scanner</h3>
+            <p>Paste email text to flag typical indicators of spam, coercion, win traps, and fraudulent verification schemes.</p>
+            <a href="{{ url_for('email_scanner') }}" class="feature-link">
+                Analyze Email <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Card 3: Password Strength -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-key"></i>
+            </div>
+            <h3>Password checker</h3>
+            <p>Check complexity (length, symbols, casing, numbers) to guard accounts against brute-force attacks.</p>
+            <a href="{{ url_for('password_checker') }}" class="feature-link">
+                Check Password <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Card 4: Dashboard -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Metrics dashboard</h3>
+            <p>View aggregate analytical scans in real time. Track risk parameters and scan counts on our central monitor.</p>
+            <a href="{{ url_for('dashboard_view') }}" class="feature-link">
+                Open Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Card 5: Privacy Tips -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <h3>privacy tips</h3>
+            <p>Access curated offline checklists on browser configurations, secure passcodes, backing up, and network shields.</p>
+            <a href="{{ url_for('privacy_tips') }}" class="feature-link">
+                Learn Best Practices <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Card 6: Offline Engine Info -->
+        <div class="cyber-card feature-card">
+            <div class="feature-icon-wrapper">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <h3>100% Offline AI Logic</h3>
+            <p>No connections or remote APIs are utilized. Your scanned inputs never leave your computer, preserving total data safety.</p>
+            <span class="feature-link" style="cursor: default;">
+                Secured Locally <i class="fas fa-circle-check" style="color: var(--safe);"></i>
+            </span>
+        </div>
+    </div>
+</section>
+{% endblock %}
