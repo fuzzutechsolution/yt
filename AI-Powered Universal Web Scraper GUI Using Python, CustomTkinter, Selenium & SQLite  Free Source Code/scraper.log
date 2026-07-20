@@ -1,0 +1,115 @@
+[2026-07-20 08:49:46] [INFO] [MainThread] Logging system initialized successfully.
+[2026-07-20 08:49:46] [INFO] [MainThread] Initializing Application Bootstrap Lifecycle...
+[2026-07-20 08:49:46] [INFO] [MainThread] Local SQLite database initialized successfully.
+[2026-07-20 08:49:46] [INFO] [MainThread] Loaded appearance configuration: Theme=Dark
+[2026-07-20 08:49:46] [INFO] [MainThread] Assembling Main Application GUI Shell...
+[2026-07-20 08:49:48] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 08:49:48] [INFO] [MainThread] Main GUI loop executing.
+[2026-07-20 08:50:09] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 08:50:44] [INFO] [MainThread] Workspace loading view: History
+[2026-07-20 08:50:55] [INFO] [MainThread] Workspace loading view: Database
+[2026-07-20 08:51:05] [INFO] [MainThread] Workspace loading view: Settings
+[2026-07-20 08:51:09] [INFO] [MainThread] Workspace loading view: About
+[2026-07-20 08:51:13] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 08:52:54] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 08:55:37] [INFO] [ScrapingWorkerThread] robots.txt permission query result for '*': False
+[2026-07-20 08:56:06] [INFO] [MainThread] Opening target exports directory: C:\D Drive\Codingsss\20 July 2026\scrapes
+[2026-07-20 08:56:15] [INFO] [MainThread] Workspace loading view: History
+[2026-07-20 08:56:24] [INFO] [MainThread] Initiating export of 2 rows to format: XLSX
+[2026-07-20 08:56:24] [INFO] [MainThread] Successfully exported data to: C:\D Drive\Codingsss\20 July 2026\scrapes\scrape_history_3_2026-07-20_12-00-00.xlsx
+[2026-07-20 08:56:24] [INFO] [MainThread] Initiating export of 2 rows to format: PDF
+[2026-07-20 08:56:24] [INFO] [MainThread] Successfully exported data to: C:\D Drive\Codingsss\20 July 2026\scrapes\scrape_history_3_2026-07-20_12-00-00.pdf
+[2026-07-20 08:56:24] [INFO] [MainThread] Exported XLSX & PDF to: C:\D Drive\Codingsss\20 July 2026\scrapes
+[2026-07-20 08:56:44] [INFO] [MainThread] Workspace loading view: Database
+[2026-07-20 08:57:07] [INFO] [MainThread] Workspace loading view: Settings
+[2026-07-20 08:58:10] [INFO] [MainThread] Saved settings configurations successfully.
+[2026-07-20 08:58:10] [INFO] [MainThread] Updating application theme appearance: Dark
+[2026-07-20 08:58:12] [INFO] [MainThread] Saved settings configurations successfully.
+[2026-07-20 08:58:12] [INFO] [MainThread] Updating application theme appearance: Dark
+[2026-07-20 08:58:15] [INFO] [MainThread] Workspace loading view: About
+[2026-07-20 08:58:18] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 08:58:24] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 08:58:33] [INFO] [ScrapingWorkerThread] robots.txt permission query result for '*': False
+[2026-07-20 08:58:55] [WARNING] [ScrapingWorkerThread] Failed to check robots.txt: HTTPSConnectionPool(host='localhost', port=443): Max retries exceeded with url: /robots.txt (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002838AC0D590>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')). Defaulting to allowed.
+[2026-07-20 08:58:55] [INFO] [ScrapingWorkerThread] Initializing Chrome driver (Attempt 1/3)...
+[2026-07-20 08:59:09] [ERROR] [ScrapingWorkerThread] Navigation error: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.125)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6ebc70d25+155a5]
+	chromedriver!GetHandleVerifier [0x7ff6ebc70d80+15600]
+	chromedriver!(No symbol) [0x7ff6eb7c594d]
+	chromedriver!(No symbol) [0x7ff6eb7c2709]
+	chromedriver!(No symbol) [0x7ff6eb7b2a91]
+	chromedriver!(No symbol) [0x7ff6eb7b48ff]
+	chromedriver!(No symbol) [0x7ff6eb7b3033]
+	chromedriver!(No symbol) [0x7ff6eb7b27fb]
+	chromedriver!(No symbol) [0x7ff6eb7b24b1]
+	chromedriver!(No symbol) [0x7ff6eb7b0167]
+	chromedriver!(No symbol) [0x7ff6eb7b08e2]
+	chromedriver!(No symbol) [0x7ff6eb7c9bf6]
+	chromedriver!(No symbol) [0x7ff6eb86ee24]
+	chromedriver!(No symbol) [0x7ff6eb8491ca]
+	chromedriver!(No symbol) [0x7ff6eb86e01b]
+	chromedriver!(No symbol) [0x7ff6eb812e6c]
+	chromedriver!(No symbol) [0x7ff6eb813d93]
+	chromedriver!GetHandleVerifier [0x7ff6ec256431+5facb1]
+	chromedriver!GetHandleVerifier [0x7ff6ec250a9b+5f531b]
+	chromedriver!GetHandleVerifier [0x7ff6ec275865+61a0e5]
+	chromedriver!GetHandleVerifier [0x7ff6ebc8dace+3234e]
+	chromedriver!GetHandleVerifier [0x7ff6ebc9661c+3ae9c]
+	chromedriver!GetHandleVerifier [0x7ff6ebc7ab74+1f3f4]
+	chromedriver!GetHandleVerifier [0x7ff6ebc7ad04+1f584]
+	chromedriver!GetHandleVerifier [0x7ff6ebc5d9d7+2257]
+	KERNEL32!BaseThreadInitThunk [0x7ffc4236e8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffc4324c53c+2c]
+
+[2026-07-20 08:59:20] [INFO] [MainThread] Application shutdown requested. Closing active subprocesses...
+[2026-07-20 08:59:20] [INFO] [MainThread] Application terminated. Exiting.
+[2026-07-20 09:04:12] [INFO] [MainThread] Logging system initialized successfully.
+[2026-07-20 09:04:12] [INFO] [MainThread] Initializing Application Bootstrap Lifecycle...
+[2026-07-20 09:04:12] [INFO] [MainThread] Local SQLite database initialized successfully.
+[2026-07-20 09:04:12] [INFO] [MainThread] Loaded appearance configuration: Theme=Dark
+[2026-07-20 09:04:12] [INFO] [MainThread] Assembling Main Application GUI Shell...
+[2026-07-20 09:04:14] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 09:04:14] [INFO] [MainThread] Main GUI loop executing.
+[2026-07-20 09:04:25] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 09:06:18] [INFO] [ScrapingWorkerThread] robots.txt permission query result for '*': False
+[2026-07-20 09:06:57] [INFO] [ScrapingWorkerThread] robots.txt permission query result for '*': True
+[2026-07-20 09:06:57] [INFO] [ScrapingWorkerThread] Initializing Chrome driver (Attempt 1/3)...
+[2026-07-20 09:07:02] [INFO] [ScrapingWorkerThread] AI Scraper classified intent: 'headings' based on prompt: 'Extract all visible headings'
+[2026-07-20 09:07:04] [INFO] [ScrapingWorkerThread] Scrape completed. Saved 27 items.
+[2026-07-20 09:07:20] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 09:09:10] [INFO] [MainThread] Application shutdown requested. Closing active subprocesses...
+[2026-07-20 09:09:11] [INFO] [MainThread] Application terminated. Exiting.
+[2026-07-20 09:12:07] [INFO] [MainThread] Logging system initialized successfully.
+[2026-07-20 09:12:07] [INFO] [MainThread] Initializing Application Bootstrap Lifecycle...
+[2026-07-20 09:12:07] [INFO] [MainThread] Local SQLite database initialized successfully.
+[2026-07-20 09:12:07] [INFO] [MainThread] Loaded appearance configuration: Theme=Dark
+[2026-07-20 09:12:07] [INFO] [MainThread] Assembling Main Application GUI Shell...
+[2026-07-20 09:12:11] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 09:12:12] [INFO] [MainThread] Main GUI loop executing.
+[2026-07-20 09:12:27] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 09:13:48] [INFO] [ScrapingWorkerThread] robots.txt permission query result for '*': True
+[2026-07-20 09:13:48] [INFO] [ScrapingWorkerThread] Initializing Chrome driver (Attempt 1/3)...
+[2026-07-20 09:13:53] [INFO] [ScrapingWorkerThread] AI Scraper classified intent: 'images' based on prompt: 'Extract image URLs'
+[2026-07-20 09:13:55] [INFO] [ScrapingWorkerThread] Scrape completed. Saved 58 items.
+[2026-07-20 09:15:24] [INFO] [MainThread] Workspace loading view: History
+[2026-07-20 09:15:28] [INFO] [MainThread] Workspace loading view: Database
+[2026-07-20 09:15:40] [INFO] [MainThread] Workspace loading view: Settings
+[2026-07-20 09:15:50] [INFO] [MainThread] Saved settings configurations successfully.
+[2026-07-20 09:15:50] [INFO] [MainThread] Updating application theme appearance: Light
+[2026-07-20 09:15:54] [INFO] [MainThread] Workspace loading view: About
+[2026-07-20 09:15:57] [INFO] [MainThread] Workspace loading view: Dashboard
+[2026-07-20 09:16:02] [INFO] [MainThread] Workspace loading view: Scraper
+[2026-07-20 09:16:06] [INFO] [MainThread] Workspace loading view: Settings
+[2026-07-20 09:16:12] [INFO] [MainThread] Saved settings configurations successfully.
+[2026-07-20 09:16:12] [INFO] [MainThread] Updating application theme appearance: Dark
+[2026-07-20 09:16:19] [INFO] [MainThread] Workspace loading view: History
+[2026-07-20 09:16:27] [INFO] [MainThread] Initiating export of 58 rows to format: XLSX
+[2026-07-20 09:16:28] [INFO] [MainThread] Successfully exported data to: C:\D Drive\Codingsss\20 July 2026\scrapes\scrape_history_9_2026-07-20_09-13-46.xlsx
+[2026-07-20 09:16:28] [INFO] [MainThread] Initiating export of 58 rows to format: PDF
+[2026-07-20 09:16:28] [INFO] [MainThread] Successfully exported data to: C:\D Drive\Codingsss\20 July 2026\scrapes\scrape_history_9_2026-07-20_09-13-46.pdf
+[2026-07-20 09:16:28] [INFO] [MainThread] Exported XLSX & PDF to: C:\D Drive\Codingsss\20 July 2026\scrapes
+[2026-07-20 09:17:03] [INFO] [MainThread] Workspace loading view: About
+[2026-07-20 09:17:29] [INFO] [MainThread] Application shutdown requested. Closing active subprocesses...
+[2026-07-20 09:17:29] [INFO] [MainThread] Application terminated. Exiting.
